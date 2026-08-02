@@ -89,7 +89,7 @@ useEffect(() => {
   } px-4 md:px-8 py-3 md:py-4`}>
 
             <motion.button
-  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+  onClick={() => { alert("Diklik!"); window.scrollTo({ top: 0, behavior: "smooth" }) }}
   whileTap={{ scale: 0.92 }}
   className="group relative flex items-center gap-3 bg-transparent border-none p-0 cursor-pointer"
 >
