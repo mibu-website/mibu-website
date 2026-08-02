@@ -690,14 +690,11 @@ useEffect(() => {
             className="hover:text-[#6EE7A8] transition">
               X (Twitter)
           </a>
-          <a href="#" className="hover:text-[#6EE7A8] transition">
-            Telegram
-          </a>
-          <a href="#" className="hover:text-[#6EE7A8] transition">
-            Pump.fun
-          </a>
-          <a href="#" className="hover:text-[#6EE7A8] transition">
-            Phantom Wallet
+          <a href="https://t.me/+SH1Mpzhoa4owMGQ1"
+             target="_blank"
+             rel="noopener noreferrer"
+             className="hover:text-[#6EE7A8] transition">
+              Telegram
           </a>
         </div>
       </div>
