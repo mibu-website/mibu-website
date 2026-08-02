@@ -75,6 +75,7 @@ useEffect(() => {
     />
   )
 })}
+</div>
         {/* Navbar */}
         <motion.nav
   initial={{ y: -30, opacity: 0 }}
@@ -88,25 +89,25 @@ useEffect(() => {
     : "border-white/8 bg-transparent"
   } px-4 md:px-8 py-3 md:py-4`}>
 
-            <motion.button
-  onClick={() => { alert("Diklik!"); window.scrollTo({ top: 0, behavior: "smooth" }) }}
-  whileTap={{ scale: 0.92 }}
-  className="group relative flex items-center gap-3 bg-transparent border-none p-0 cursor-pointer"
+        <motion.button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          whileTap={{ scale: 0.92 }}
+          className="group relative flex items-center gap-3 bg-transparent border-none p-0 cursor-pointer"
 >
-  {/* Leaf icon */}
-  <motion.div
-    className="relative w-9 h-9 flex items-center justify-center"
-    animate={{
-      rotate: [0, 3, -3, 0],
-      scale: [1, 1.05, 1],
-    }}
-    transition={{
-      duration: 5,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-  >
-    <svg viewBox="0 0 48 48" className="w-9 h-9" fill="none">
+      {/* Leaf icon */}
+        <motion.div
+          className="relative w-9 h-9 flex items-center justify-center"
+          animate={{
+          rotate: [0, 3, -3, 0],
+          scale: [1, 1.05, 1],
+        }}
+          transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+>
+      <svg viewBox="0 0 48 48" className="w-9 h-9" fill="none">
       <path
         d="M24 6C34 10 40 20 36 32C28 40 16 40 10 30C8 18 14 10 24 6Z"
         fill="#538d11ff"
@@ -119,17 +120,17 @@ useEffect(() => {
       />
       <circle cx="35" cy="10" r="2" fill="#4e5f2fff" />
     </svg>
-  </motion.div>
+        </motion.div>
 
-  {/* Logo text */}
-  <div className="relative">
-    <span className="text-xl sm:text-2xl md:text-4xl font-black tracking-[0.18em] ...">
-      MIBU
-    </span>
+      {/* Logo text */}
+        <div className="relative">
+          <span className="text-xl sm:text-2xl md:text-4xl font-black tracking-[0.18em] ...">
+                MIBU
+          </span>
 
-    <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-[#6EE7A8] to-[#A7F3D0] transition-all duration-300 group-hover:w-full"></span>
-  </div>
-</motion.button>
+          <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gradient-to-r from-[#6EE7A8] to-[#A7F3D0] transition-all duration-300 group-hover:w-full"></span>
+        </div>
+        </motion.button>
 
             {/* Desktop menu */}
               <div className="hidden md:flex gap-8 text-gray-300">
@@ -831,7 +832,6 @@ useEffect(() => {
 </section>
 
 </footer>
-      </div>
     </main>
   );
 }
