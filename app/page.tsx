@@ -156,7 +156,7 @@ useEffect(() => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-24 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-md rounded-[28px] border border-white/10 bg-[#0B1F17]/95 backdrop-blur-2xl p-6 shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:hidden">
+            className="fixed top-24 right-6 z-40 w-fit rounded-[28px] border border-white/10 bg-[#0B1F17]/95 backdrop-blur-2xl px-10 py-6 shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:hidden">
           <div className="flex flex-col gap-5 text-lg">
             <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-[#6EE7A8]">About</a>
             <a href="#roadmap" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-[#6EE7A8]">Roadmap</a>
