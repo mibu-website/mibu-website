@@ -157,13 +157,13 @@ useEffect(() => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-24 right-6 z-40 w-fit rounded-[28px] border border-white/10 bg-[#0B1F17]/95 backdrop-blur-2xl px-10 py-6 shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:hidden">
+            className="fixed top-24 right-6 z-40 w-fit rounded-[28px] border border-white/10 bg-[#081811] backdrop-blur-2xl px-10 py-6 shadow-[0_30px_80px_rgba(0,0,0,0.45)] md:hidden">
           <div className="flex flex-col gap-5 text-lg">
-            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-[#6EE7A8]">About</a>
-            <a href="#roadmap" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-[#6EE7A8]">Roadmap</a>
-            <a href="#gallery" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-[#6EE7A8]">Gallery</a>
-            <a href="#tokenomics" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-[#6EE7A8]">Tokenomics</a>
-            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-[#6EE7A8]">FAQ</a>
+            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="text-[#6EE7A8] hover:text-white">About</a>
+            <a href="#roadmap" onClick={() => setMobileMenuOpen(false)} className="text-[#6EE7A8] hover:text-white">Roadmap</a>
+            <a href="#gallery" onClick={() => setMobileMenuOpen(false)} className="text-[#6EE7A8] hover:text-white">Gallery</a>
+            <a href="#tokenomics" onClick={() => setMobileMenuOpen(false)} className="text-[#6EE7A8] hover:text-white">Tokenomics</a>
+            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="text-[#6EE7A8] hover:text-white">FAQ</a>
           </div>
         </motion.div>)}
 
@@ -309,15 +309,15 @@ useEffect(() => {
 
     {/* Right Text */}
     <div className="text-center lg:text-left">
-      <p className="text-[#6EE7A8] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 text-sm md:text-base">
+      <p className="select-text-[#6EE7A8] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 text-sm md:text-base">
         About MiBU
       </p>
 
-      <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 md:mb-6">
+      <h3 className="select-text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 md:mb-6">
         Kindness always finds its way back.
       </h3>
 
-      <p className="text-base md:text-lg text-gray-300 leading-7 md:leading-8 mb-6 md:mb-8">
+      <p className="select-text-base md:text-lg text-gray-300 leading-7 md:leading-8 mb-6 md:mb-8">
         MiBU is a little forest buddy who believes that kindness creates
         stronger communities. Every small act of care makes the forest a
         little brighter, and every friend matters.
