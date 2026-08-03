@@ -36,16 +36,16 @@ useEffect(() => {
           />
 
       {/* Forest Background */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,197,94,0.15),_transparent_45%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(250,204,21,0.10),_transparent_40%)]"></div>
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(34,...))]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_rgba(...))]" />
 
-        {/* Fog layer */}
-        <div className="absolute bottom-0 w-full h-[250px] bg-gradient-to-t from-[#081811] via-[#0B2017]/80 to-transparent"></div>
+      {/* Fog layer */}
+        <div className="absolute bottom-0 w-full h-[250px] bg-gradient-to-t from-[#08181...]" />
       </div>
 
       {/* Background Glow */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
 
         {/* Forest Particles */}
 {[...Array(80)].map((_, i) => {
