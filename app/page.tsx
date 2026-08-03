@@ -515,7 +515,7 @@ useEffect(() => {
           "/stickers/baby.png",
           "/stickers/hungry.png",
           "/stickers/hi-buddy.png",
-          "/stickers/astronaut.png",
+          "/stickers/whale.png",
           "/stickers/buddy1.png",
           "/stickers/buddy2.png",
           "/stickers/buddy3.png",
