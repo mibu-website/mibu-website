@@ -309,15 +309,15 @@ useEffect(() => {
 
     {/* Right Text */}
     <div className="text-center lg:text-left">
-      <p className="select-text-[#6EE7A8] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 text-sm md:text-base">
+      <p className="select-text text-[#6EE7A8] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-3 md:mb-4 text-sm md:text-base">
         About MiBU
       </p>
 
-      <h3 className="select-text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 md:mb-6">
+      <h3 className="select-text text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 md:mb-6">
         Kindness always finds its way back.
       </h3>
 
-      <p className="select-text-base md:text-lg text-gray-300 leading-7 md:leading-8 mb-6 md:mb-8">
+      <p className="select-text text-base md:text-lg text-gray-300 leading-7 md:leading-8 mb-6 md:mb-8">
         MiBU is a little forest buddy who believes that kindness creates
         stronger communities. Every small act of care makes the forest a
         little brighter, and every friend matters.
