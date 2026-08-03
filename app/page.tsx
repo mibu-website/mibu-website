@@ -408,7 +408,7 @@ useEffect(() => {
   {
     phase: "Phase 4",
     title: "A brighter forest",
-    image: "/stickers/astronaut.png",
+    image: "/stickers/whale.png",
     text: "MiBU is no longer alone. What began as a simple friendship grows into a united community built on kindness, sharing, storytelling, collaboration, creativity, and collective growth.",
   },
 ]
@@ -506,7 +506,7 @@ useEffect(() => {
           "/stickers/baby.png",
           "/stickers/hungry.png",
           "/stickers/hi-buddy.png",
-          "/stickers/astronaut.png",
+          "/stickers/whale.png",
           "/stickers/buddy1.png",
           "/stickers/buddy2.png",
           "/stickers/buddy3.png",
