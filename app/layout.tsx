@@ -2,15 +2,15 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mibu.io'),
+  metadataBase: new URL('https://mibucoin.com'),
 
   title: {
-    default: 'MIBU — A little buddy with a big heart',
-    template: '%s | MIBU',
+    default: 'MiBU (MIBU) | A little buddy with a big heart on Solana',
+    template: '%s | MiBU',
   },
 
   description:
-    'Built with kindness on Solana. Join the forest community and explore the MiBU journey.',
+  'MiBU is a community-driven Solana meme coin built around kindness, creativity, and long-term community growth. Explore the world of MiBU, its story, roadmap, tokenomics, and join the forest-born buddy community.',
 
   keywords: [
     'MIBU',
