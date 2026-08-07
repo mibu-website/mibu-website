@@ -28,10 +28,10 @@ export const metadata: Metadata = {
   creator: 'MIBU',
   publisher: 'MIBU',
 
-  openGraph: {
+   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://mibu.io',
+    url: 'https://mibucoin.com',
     siteName: 'MIBU',
     title: 'MIBU — A little buddy with a big heart',
     description:
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'MIBU — A little buddy with a big heart',
     description:
-      'Built with kindness on Solana. Join the forest community and explore the MiBU journey.',
+      'MiBU is a community-driven Solana meme coin built around kindness, creativity, and long-term community growth. Explore the world of MiBU, its story, roadmap, tokenomics, and join the forest-born buddy community.',
     images: ['/og-image.jpg'],
     creator: '@MIBU',
   },
