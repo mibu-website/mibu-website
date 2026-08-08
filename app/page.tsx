@@ -4,6 +4,15 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function Home() {
+  const CONTRACT_ADDRESS = "Coming Soon";
+  const PUMPFUN_URL = "https://pump.fun";
+  const [copied, setCopied] = useState(false);
+
+  const copyContract = async () => {
+  await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+  setCopied(true);
+  setTimeout(() => setCopied(false), 2000);
+};
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -260,27 +269,45 @@ useEffect(() => {
               A forest-born meme coin community on Solana.
             </p>
 
-              <div className="mt-10">
-                <a
-                  href="#buy"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#6EE7A8]/40 bg-[#10231B]/70 text-[#A7F3D0] font-semibold text-sm hover:bg-[#163427] hover:border-[#6EE7A8] transition-all duration-300">
-                  Explore MiBU
-                  <svg
-                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </a>
-          </div>
-        </motion.div>
-      </section>
+          <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+             {/* Buy Button */}
+            <a
+              href={PUMPFUN_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 px-5 py-3 rounded-full border border-green-400/40 bg-green-500/10 text-green-300 shadow-[0_0_20px_rgba(34,197,94,0.18)] transition-all duration-300 hover:scale-105 hover:bg-green-500 hover:text-black hover:border-green-300 hover:shadow-[0_0_45px_rgba(34,197,94,0.45)]"
+            >
+              Buy $MIBU
+            <svg
+              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+          <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 7l5 5m0 0l-5 5m5-5H6"
+            />
+          </svg>
+        </a>
+              {/* Contract Address */}
+          <div className="flex items-center gap-3 px-4 py-3 rounded-full border border-green-800 bg-green-950/40">
+            <span className="text-sm text-gray-300 font-mono">
+              CA: {CONTRACT_ADDRESS}
+            </span>
+
+          <button
+            onClick={copyContract}
+            className="px-3 py-1.5 rounded-full border border-green-600 bg-green-900/40 text-green-300 text-sm font-medium hover:bg-green-500 hover:text-black transition-all duration-300"
+          >
+            Copy
+          </button>
+        </div>
+        </div>
+      </motion.div>
+    </section>
 
       {/* About MiBU */}
       <section id="about" className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-28">
@@ -324,17 +351,17 @@ useEffect(() => {
       </p>
 
       <div className="grid grid-cols-3 gap-2 sm:gap-4">
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-3 sm:p-5">
+        <div className="group relative rounded-2xl border border-green-500/30 bg-[#0b1f17]/80 p-4 overflow-hidden shadow-[0_0_20px_rgba(34,197,94,0.18)] transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:border-green-300 hover:shadow-[0_0_60px_rgba(34,197,94,0.45)] cursor-pointer">
           <p className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">Chain</p>
           <p className="text-base sm:text-xl font-semibold">Solana</p>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-3 sm:p-5">
+        <div className="group relative rounded-2xl border border-green-500/30 bg-[#0b1f17]/80 p-4 overflow-hidden shadow-[0_0_20px_rgba(34,197,94,0.18)] transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:border-green-300 hover:shadow-[0_0_60px_rgba(34,197,94,0.45)] cursor-pointer">
           <p className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">Focus</p>
           <p className="text-base sm:text-xl font-semibold">Community</p>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-3 sm:p-5">
+        <div className="group relative rounded-2xl border border-green-500/30 bg-[#0b1f17]/80 p-4 overflow-hidden shadow-[0_0_20px_rgba(34,197,94,0.18)] transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:border-green-300 hover:shadow-[0_0_60px_rgba(34,197,94,0.45)] cursor-pointer">
           <p className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2">Spirit</p>
           <p className="text-base sm:text-xl font-semibold">Kindness</p>
         </div>
@@ -829,6 +856,11 @@ useEffect(() => {
 </section>
 
 </footer>
+      {copied && (
+        <div className="fixed bottom-6 right-6 z-50 px-4 py-3 rounded-xl border border-green-500/30 bg-[#0b1f17]/90 text-green-300 shadow-[0_0_30px_rgba(34,197,94,0.35)] backdrop-blur-md transition-all duration-300">
+          ✓ Contract address copied
+        </div>
+      )}
     </main>
   );
 }
