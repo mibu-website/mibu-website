@@ -8,6 +8,11 @@ export default function Home() {
   const PUMPFUN_URL = "https://pump.fun/coin/HK9MQpZc2GfwCbd3fVyCCwcD8xdw94U6KuWigqG8pump";
   const [copied, setCopied] = useState(false);
 
+  const [tokenData, setTokenData] = useState({
+    marketCap: "Loading...",
+    price: "Loading...",
+  });
+
   const copyContract = async () => {
   await navigator.clipboard.writeText(CONTRACT_ADDRESS);
   setCopied(true);
@@ -24,10 +29,39 @@ useEffect(() => {
 
   window.addEventListener("scroll", handleScroll);
 
+  const fetchTokenData = async () => {
+    try {
+      const res = await fetch(
+        `https://api.dexscreener.com/latest/dex/tokens/${CONTRACT_ADDRESS}`
+      );
+
+      const data = await res.json();
+      const pair = data.pairs?.[0];
+
+      if (pair) {
+        setTokenData({
+          marketCap: pair.marketCap
+            ? `$${Number(pair.marketCap).toLocaleString()}`
+            : "N/A",
+          price: pair.priceUsd
+            ? `$${pair.priceUsd}`
+            : "N/A",
+        });
+      }
+    } catch (error) {
+      console.error("Failed to fetch token data:", error);
+    }
+  };
+
+  fetchTokenData();
+
+  const interval = setInterval(fetchTokenData, 30000);
+
   return () => {
     window.removeEventListener("scroll", handleScroll);
+    clearInterval(interval);
   };
-}, []);
+}, [CONTRACT_ADDRESS]);
   return (
 
       <main
@@ -568,7 +602,11 @@ useEffect(() => {
     </div>
   </motion.div>
 </section>
-<section id="tokenomics" className="max-w-7xl mx-auto px-6 md:px-8 py-10 sm:py-14 lg:py-20">
+
+          <section
+  id="tokenomics"
+  className="max-w-7xl mx-auto px-6 md:px-8 py-10 sm:py-14 lg:py-20"
+>
   <motion.div
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -580,75 +618,94 @@ useEffect(() => {
       <p className="text-[#6EE7A8] uppercase tracking-[0.3em] mb-4">
         Tokenomics
       </p>
+
       <h2 className="text-2xl sm:text-3xl lg:text-6xl font-bold mb-6">
         A fair forest economy
       </h2>
+
       <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-        Every token helps grow the MiBU forest through community,
-        liquidity, development, and long-term sustainability.
+        Live token statistics directly connected to the MiBU ecosystem on
+        Solana.
       </p>
     </div>
 
-     {/* Distribution Cards */}
-    <div className="grid grid-cols-2 gap-2.5 sm:gap-5 lg:gap-8 mb-4 sm:mb-8 lg:mb-16">
-      {[
-        { title: "Community", value: "0%", width: "0%" },
-        { title: "Liquidity", value: "0%", width: "0%" },
-        { title: "Marketing", value: "0%", width: "0%" },
-        { title: "Development", value: "0%", width: "0%" },
-      ].map((item, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: index * 0.1 }}
-          className="rounded-[12px] sm:rounded-[20px] lg:rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl p-2.5 sm:p-4 lg:p-8 transition-all duration-500 hover:border-[#6EE7A8]/40 hover:bg-white/10 hover:shadow-[0_0_40px_rgba(110,231,168,0.18)]"
-        >
-          <div className="flex justify-between items-center mb-1.5 sm:mb-3">
-            <h3 className="text-xs sm:text-base lg:text-2xl font-bold">{item.title}</h3>
-            <span className="text-[#6EE7A8] font-semibold text-xs sm:text-base lg:text-2xl">
-              {item.value}
+    {/* Live Token Stats */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="max-w-3xl mx-auto"
+    >
+      <div className="rounded-[24px] sm:rounded-[32px] lg:rounded-[40px] border border-[#6EE7A8]/20 bg-white/5 backdrop-blur-2xl p-6 sm:p-8 lg:p-10 shadow-[0_30px_80px_rgba(110,231,168,0.12)] hover:border-[#6EE7A8]/40 hover:shadow-[0_0_50px_rgba(110,231,168,0.18)] transition-all duration-500">
+
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white">
+            Live token stats
+          </h3>
+
+        <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-green-500/30 bg-green-500/10">
+          <span className="w-2 h-2 rounded-full bg-[#6EE7A8] animate-pulse"></span>
+          <span className="text-xs font-medium text-[#6EE7A8]">
+            LIVE
+          </span>
+        </div>
+      </div>
+      
+        <div className="space-y-6">
+
+          {/* Total Supply */}
+          <div className="flex justify-between items-center">
+            <span className="text-gray-400 text-sm sm:text-base">
+              Total supply
+            </span>
+
+            <span className="font-semibold text-white text-sm sm:text-base">
+              1,000,000,000 MIBU
             </span>
           </div>
 
-          <div className="h-1 sm:h-1.5 lg:h-3 bg-white/10 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full rounded-full bg-gradient-to-r from-[#6EE7A8] to-[#A7F3D0]"
-              initial={{ width: 0 }}
-              whileInView={{ width: item.width }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
-            />
+          <div className="border-t border-white/10"></div>
+
+          {/* Market Cap */}
+          <div className="flex justify-between items-center">
+            <span className="text-gray-400 text-sm sm:text-base">
+              Market cap
+            </span>
+
+            <span className="font-semibold text-white text-sm sm:text-base">
+              {tokenData.marketCap}
+            </span>
           </div>
-        </motion.div>
-      ))}
-    </div>
 
-    {/* Total Supply */}
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="rounded-[24px] sm:rounded-[32px] lg:rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-2xl p-6 sm:p-8 lg:p-12 text-center shadow-[0_30px_100px_rgba(110,231,168,0.12)]"
-    >
-      <p className="text-gray-400 uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-3 sm:mb-4 text-xs sm:text-sm">
-        Total supply
-      </p>
+          <div className="border-t border-white/10"></div>
 
-      <h3 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-[#6EE7A8] mb-3 sm:mb-4">
-        1,000,000,000
-      </h3>
+          {/* Price */}
+          <div className="flex justify-between items-center">
+            <span className="text-gray-400 text-sm sm:text-base">
+              Price
+            </span>
 
-      <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white mb-4 sm:mb-6">
-        $MIBU
-      </p>
+            <span className="font-semibold text-white text-sm sm:text-base">
+              {tokenData.price}
+            </span>
+          </div>
 
-      <p className="text-gray-300 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
-        Built on Solana with a transparent, community-first allocation
-        model designed for sustainable long-term growth.
-      </p>
+          <div className="border-t border-white/10"></div>
+
+          {/* Bonding Progress */}
+          <div className="flex justify-between items-center">
+            <span className="text-gray-400 text-sm sm:text-base">
+              Bonding progress
+            </span>
+
+            <span className="font-semibold text-[#6EE7A8] text-sm sm:text-base">
+              10%
+            </span>
+          </div>
+
+        </div>
+      </div>
     </motion.div>
   </motion.div>
 </section>
