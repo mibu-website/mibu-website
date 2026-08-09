@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const CONTRACT_ADDRESS = "Coming Soon";
-  const PUMPFUN_URL = "https://pump.fun";
+  const CONTRACT_ADDRESS = "HK9MQpZc2GfwCbd3fVyCCwcD8xdw94U6KuWigqG8pump";
+  const PUMPFUN_URL = "https://pump.fun/coin/HK9MQpZc2GfwCbd3fVyCCwcD8xdw94U6KuWigqG8pump";
   const [copied, setCopied] = useState(false);
 
   const copyContract = async () => {
@@ -294,8 +294,8 @@ useEffect(() => {
         </a>
               {/* Contract Address */}
           <div className="flex items-center gap-3 px-4 py-3 rounded-full border border-green-800 bg-green-950/40">
-            <span className="text-sm text-gray-300 font-mono">
-              CA: {CONTRACT_ADDRESS}
+            <span className="text-sm text-gray-300 font-mono tracking-wide">
+              CA: {CONTRACT_ADDRESS.slice(0, 6)}...{CONTRACT_ADDRESS.slice(-6)}
             </span>
 
           <button
